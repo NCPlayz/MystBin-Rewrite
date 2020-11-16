@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MonacoEditor from "./MonacoEditor";
+import styles from '../styles/EditorTabs.module.css'
+
 
 export default function EditorTabs() {
   const [value, setValue] = useState(["// write here", "// write here"]);
@@ -7,10 +9,10 @@ export default function EditorTabs() {
 
   return (
     <>
+      <div className={styles.tabsContainer}>
       {value.map((v, i) => (
-        <button onClick={() => setCurrTab(i)} style={{
-            backgroundColor: currTab === i ? "purple" : "white"
-        }}>Tab {i}</button>
+        <button onClick={() => setCurrTab(i)} className={ currTab === i ? styles.tabsSelected : styles.tabs }
+        >Tab {i}</button>
       ))}
       <button
         onClick={() => {
@@ -40,6 +42,7 @@ export default function EditorTabs() {
           />
         </div>
       ))}
+      </div>
     </>
   );
 }

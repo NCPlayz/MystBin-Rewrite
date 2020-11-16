@@ -66,7 +66,7 @@ monaco.init().then((monaco) => {
       { token: "predefined.sql", foreground: "FF00FF" },
     ],
     colors: {
-      "editor.background": "#2F3136",
+      "editor.background": "#202225",
     },
   });
 });
@@ -83,12 +83,13 @@ export default function MonacoEditor(
 
   return (
     <ControlledEditor
-      height="90vh"
+      height="calc(90vh - 4.25rem)"
       value={value}
       theme={theme}
       onChange={onChange}
       language={language}
       options={{
+        contextmenu: false,
         suggest: false,
         quickSuggestions: false,
       }}
